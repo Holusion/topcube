@@ -83,14 +83,14 @@ static gboolean download (
 
 int main(int argc, char* argv[])
 {
-  static gchar *url = const_cast<char*>("http://nodejs.com");
+  static gchar *url = const_cast<char*>("http://google.com");
   static gchar *name = const_cast<char*>("TopCube");
   static gint width = 800;
   static gint height = 600;
   static gint minwidth = 600;
   static gint minheight = 400;
   static GOptionEntry entries[] = {
-    { "url", 'u', 0, G_OPTION_ARG_STRING, &url, "URL", NULL },
+    { "url", 'u', 0, G_OPTION_ARG_STRING, &url, "Url", NULL },
     { "name", 'n', 0, G_OPTION_ARG_STRING, &name, "Window name", NULL },
     { "width", 'W', 0, G_OPTION_ARG_INT, &width, "Width", NULL },
     { "height", 'H', 0, G_OPTION_ARG_INT, &height, "Height", NULL },
