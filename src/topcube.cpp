@@ -97,6 +97,7 @@ int main(int argc, char* argv[])
     { "minwidth", 'w', 0, G_OPTION_ARG_INT, &minwidth, "Minimum width", NULL },
     { "minheight", 'h', 0, G_OPTION_ARG_INT, &minheight, "Minimum height", NULL }
   };
+  g_print ("test message");
   GError *error = NULL;
   GOptionContext *options;
   options = g_option_context_new("topcube options");
