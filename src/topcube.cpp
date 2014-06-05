@@ -83,7 +83,7 @@ static gboolean download (
 
 int main(int argc, char* argv[])
 {
-  static gchar *url = const_cast<char*>("http://google.com");
+  static gchar *url = const_cast<char*>("http://nodejs.com");
   static gchar *name = const_cast<char*>("TopCube");
   static gint width = 800;
   static gint height = 600;
