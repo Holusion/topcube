@@ -16,12 +16,12 @@
           'cflags_cc' : [
               '<!@(pkg-config gtk+-2.0 --cflags)',
               '<!@(pkg-config glib-2.0 --cflags)',
-              '<!@(pkg-config webkit-1.0 --cflags)'
+              '<!@(pkg-config webkit2-3.0 --cflags)'
           ],
           'libraries':[
               '<!@(pkg-config gtk+-2.0 --libs)',
               '<!@(pkg-config glib-2.0 --libs)',
-              '<!@(pkg-config webkit-1.0 --libs)'
+              '<!@(pkg-config webkit2-3.0 --libs)'
           ]
         }]
       ]
