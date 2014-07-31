@@ -28,7 +28,7 @@ void title_change (void)
 {
   gtk_window_set_title(GTK_WINDOW (window), webkit_web_view_get_title(WEBKIT_WEB_VIEW (web_view)));
 }
-
+/*
 void new_window (
   WebKitWebView *web_view,
   WebKitFrame *frame,
@@ -40,6 +40,7 @@ void new_window (
   argv[2] = NULL;
   g_spawn_async(NULL, argv, NULL, G_SPAWN_LEAVE_DESCRIPTORS_OPEN, NULL, NULL, NULL, NULL);
 }
+*/
 //DOWNLOAD FUNCTION,
 //Cannot figure out how download_new translates in webkit2
 /*
@@ -121,8 +122,8 @@ int main(int argc, char* argv[])
 
   gtk_signal_connect (GTK_OBJECT (window), "destroy", GTK_SIGNAL_FUNC (destroy), NULL);
   gtk_signal_connect (GTK_OBJECT (web_view), "title-changed", GTK_SIGNAL_FUNC (title_change), NULL);
-  gtk_signal_connect (GTK_OBJECT (web_view), "mime-type-policy-decision-requested", GTK_SIGNAL_FUNC (download), NULL);
-  gtk_signal_connect (GTK_OBJECT (web_view), "new-window-policy-decision-requested", GTK_SIGNAL_FUNC (new_window), NULL);
+  //gtk_signal_connect (GTK_OBJECT (web_view), "mime-type-policy-decision-requested", GTK_SIGNAL_FUNC (download), NULL);
+  //gtk_signal_connect (GTK_OBJECT (web_view), "new-window-policy-decision-requested", GTK_SIGNAL_FUNC (new_window), NULL);
 
   gtk_container_add (GTK_CONTAINER (scrolled_window), web_view);
   gtk_container_add (GTK_CONTAINER (window), scrolled_window);
