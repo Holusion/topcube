@@ -12,13 +12,12 @@ int main(int argc, char* argv[])
 #include <string.h> // for strcmp
 #include <cstdlib> // for exit
 #include <gtk/gtk.h>
-#include <webkit/webkit.h>
-#include <webkit/webkitwebview.h>
+#include <webkit2/webkit2.h>
 
 GtkWidget *window;
 GtkWidget *scrolled_window;
 GtkWidget *web_view;
-WebKitWebSettings *settings;
+WebKitSettings *settings;
 
 void destroy (void)
 {
@@ -32,8 +31,8 @@ void title_change (void)
 
 void new_window (
   WebKitWebView *web_view,
-  WebKitWebFrame *frame,
-  WebKitNetworkRequest *request)
+  WebKitFrame *frame,
+  WebKitURIRequest *request)
 {
   gchar *argv[3];
   argv[0] = const_cast<char*>("/usr/bin/xdg-open");
@@ -41,18 +40,22 @@ void new_window (
   argv[2] = NULL;
   g_spawn_async(NULL, argv, NULL, G_SPAWN_LEAVE_DESCRIPTORS_OPEN, NULL, NULL, NULL, NULL);
 }
-
+//DOWNLOAD FUNCTION,
+//Cannot figure out how download_new translates in webkit2
+/*
 static gboolean download (
   WebKitWebView *web_view,
-  WebKitWebFrame *frame,
-  WebKitNetworkRequest *request,
+  WebKitFrame *frame,
+  WebKitURIRequest *request,
   const char *mime_type,
-  WebKitWebPolicyDecision *decision,
-  gpointer user_data)
+  WebKitPolicyDecision *decision,
+  gpointer user_data
+  )
 {
   // Any other mime types we should handle?
   if (strcmp(mime_type, "text/html") != 0) {
-    WebKitDownload *download = webkit_download_new(request);
+    WebKitDownload download;
+    //WebKitDownload *download = webkit_download_new(request);
     GtkWidget *window = gtk_widget_get_toplevel (GTK_WIDGET(web_view));
     GtkWidget *dialog = gtk_file_chooser_dialog_new ("Save file",
       GTK_WINDOW(window),
@@ -80,7 +83,7 @@ static gboolean download (
   }
   return TRUE;
 }
-
+*/
 int main(int argc, char* argv[])
 {
   static gchar *url = const_cast<char*>("http://google.com");
